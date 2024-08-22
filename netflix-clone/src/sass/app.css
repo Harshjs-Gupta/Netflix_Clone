@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: white;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: absolute;
+  z-index: 10;
+  padding-top: 10px;
+}
+
+.shadow {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.tv_image {
+  background-image: url("../signUpPageImages/movieImage/tv_background.jpg");
+  background-position: center;
+  background-size: cover;
+}/*# sourceMappingURL=app.css.map */
