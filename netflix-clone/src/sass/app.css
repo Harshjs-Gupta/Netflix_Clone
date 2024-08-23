@@ -22,12 +22,8 @@ body {
   padding-top: 10px;
 }
 
-.shadow {
-  background: rgba(0, 0, 0, 0.4);
-}
-
 .tv_image {
-  background-image: url("../signUpPageImages/movieImage/tv_background.jpg");
+  background-image: url("../signUpPageImages/MovieImage/tv_background.jpg");
   background-position: center;
   background-size: cover;
 }/*# sourceMappingURL=app.css.map */
