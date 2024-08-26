@@ -30,11 +30,11 @@ function SignInPage() {
     setEmail(localStorage.getItem("email"));
   }, []);
 
-  // useEffect(() => {
-  //   if (email) {
-  //     navigate("/home"); // Navigate to HomePage when email is set
-  //   }
-  // }, [email, navigate]);
+  useEffect(() => {
+    if (email) {
+      navigate("/home"); // Navigate to HomePage when email is set
+    }
+  }, [email, navigate]);
 
   return (
     <div className="overflow-x-hidden">
@@ -68,9 +68,9 @@ function SignInPage() {
               </button>
             </form>
             <span className="text-center text-gray-400 my-4">OR</span>
-            {/* {email ? (
+            {email ? (
               <div className="text-center text-gray-400">Redirecting...</div>
-            ) : ( */}
+            ) : (
             <button
               onClick={handleAuth}
               className="sm:w-[315px] w-[340px] h-14 flex items-center justify-around border text-center border-gray-700 border-solid rounded-[4px] bg-white py-4 active:bg-gray-100"
@@ -84,7 +84,7 @@ function SignInPage() {
                 Sign In With Google
               </span>
             </button>
-            {/* )} */}
+             )} 
             <span className="text-center text-gray-400 my-4">
               Forgot password?
             </span>
