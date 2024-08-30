@@ -1,5 +1,6 @@
 import { useState } from "react";
 import AnswerComponent from "./AnswerComponent";
+import goForward from "../../assets/icons/rightArrow.png";
 
 const questions = [
   {
@@ -57,7 +58,7 @@ function AnswerSection() {
     <>
       <div
         className={`bg-black w-full ${
-          isAnswerOpen ? "h-[900px]" : "h-[700px]"
+          isAnswerOpen ? "h-[1050px]" : "h-[800px]"
         } flex flex-col px-5 py-5 lg:px-10 relative`}
       >
         <div className="font-[900] text-2xl lg:text-[30px] lg:font-extrabold mt-7 lg:mt-10">
@@ -73,6 +74,29 @@ function AnswerSection() {
               onToggle={handleAnswerToggle}
             />
           ))}
+        </div>
+        <div className="text-left">
+          <p className="text-[15px] mt-3">
+            Ready to watch? Enter your email to create or restart your
+            membership.
+          </p>
+          <form className="flex flex-col lg:flex-row text-left mt-4 ">
+            <input
+              type="text"
+              className="w-80 h-10 lg:h-[52px] rounded-[4px] lg:w-[720px] bg-[rgb(15,15,15,.3)] p-3 lg:p-3 border border-solid border-stone-400 placeholder:font-medium placeholder:text-gray-400"
+              placeholder="Email address"
+            />
+            <div className="cursor-pointer mt-4 lg:mt-0 bg-[rgb(229,9,20)] rounded-[4px] h-10 w-32 flex items-center  justify-between text-left lg:w-[195px] lg:h-[52px] p-3 lg:p-3 ml-0 lg:ml-4">
+              <button className="text-[16px] lg:text-[23px] lg:font-[600]">
+                Get Started
+              </button>
+              <img
+                src={goForward}
+                alt="goForward"
+                className="h-6 lg:h-[23px] lg:font-[600] ml-[10px] lg:ml-[15px]"
+              />
+            </div>
+          </form>
         </div>
       </div>
     </>
