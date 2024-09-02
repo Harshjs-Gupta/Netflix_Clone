@@ -4,13 +4,13 @@ import netflix from "../../assets/images/netflix.png";
 import userProfileImage from "../../assets/userProfileImage/2.png";
 import search from "../../assets/icons/search.png";
 import useSearchData from "../../assets/api/searchMovieByApi";
-import Movies from "../SearchMovieData/Movies";
+// import Movies from "../SearchMovieData/Movies";
 
 function HomeHeader({ handleLogOut }) {
   const navigate = useNavigate();
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [showMovies, setShowMovies] = useState(false);
-  const { searchedMovie, setSearchedMovie, comingMovieData } = useSearchData();
+  const { searchedMovie, setSearchedMovie } = useSearchData();
 
   const onLogOut = () => {
     handleLogOut();
@@ -22,7 +22,7 @@ function HomeHeader({ handleLogOut }) {
     // console.log(comingMovieData);
     if (searchedMovie) {
       setShowMovies(true);
-    } else if (!isSearchOpen) {
+    } else if (isSearchOpen === false) {
       setSearchedMovie(false);
       setShowMovies(false);
     }
@@ -56,7 +56,6 @@ function HomeHeader({ handleLogOut }) {
             </form>
           )}
         </div>
-        <div>{showMovies && <Movies comingMovieData={comingMovieData} />}</div>
         <img
           src={userProfileImage}
           alt="profile_image"
@@ -64,6 +63,7 @@ function HomeHeader({ handleLogOut }) {
           className="h-8 cursor-pointer"
         />
       </header>
+      {showMovies}
     </>
   );
 }
