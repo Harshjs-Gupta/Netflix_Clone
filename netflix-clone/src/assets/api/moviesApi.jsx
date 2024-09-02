@@ -17,7 +17,7 @@ function useMovieData() {
 
     // Fetch comedy movies using the OMDB API
     const comedyRes = await fetch(
-      `http://www.omdbapi.com/?apikey=${API_KEY}&s=avenger`,
+      `https://www.omdbapi.com/?apikey=${API_KEY}&s=avenger`,
       { headers: headers }
     );
     const comedyMovies = await comedyRes.json();
@@ -25,35 +25,35 @@ function useMovieData() {
     setComedyMovieData(comedyMovies.Search || []);
 
     const classicRes = await fetch(
-      `http://www.omdbapi.com/?apikey=${API_KEY}&s=classic`,
+      `https://www.omdbapi.com/?apikey=${API_KEY}&s=classic`,
       { headers: headers }
     );
     const classicMovies = await classicRes.json();
     setClassicMovieData(classicMovies.Search || []);
 
     const horrorRes = await fetch(
-      `http://www.omdbapi.com/?apikey=${API_KEY}&s=horror`,
+      `https://www.omdbapi.com/?apikey=${API_KEY}&s=horror`,
       { headers: headers }
     );
     const horrorMovies = await horrorRes.json();
     setHorrorMovieData(horrorMovies.Search || []);
 
     const westernRes = await fetch(
-      `http://www.omdbapi.com/?apikey=${API_KEY}&s=western`,
+      `https://www.omdbapi.com/?apikey=${API_KEY}&s=western`,
       { headers: headers }
     );
     const westernMovies = await westernRes.json();
     setWesternMovieData(westernMovies.Search || []);
 
     const familyRes = await fetch(
-      `http://www.omdbapi.com/?apikey=${API_KEY}&s=family`,
+      `https://www.omdbapi.com/?apikey=${API_KEY}&s=family`,
       { headers: headers }
     );
     const familyMovies = await familyRes.json();
     setFamilyMovieData(familyMovies.Search || []);
 
     const mysteryRes = await fetch(
-      `http://www.omdbapi.com/?apikey=${API_KEY}&s=mystery`,
+      `https://www.omdbapi.com/?apikey=${API_KEY}&s=mystery`,
       { headers: headers }
     );
     const mysteryMovies = await mysteryRes.json();
