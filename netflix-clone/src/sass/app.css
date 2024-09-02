@@ -8,6 +8,12 @@
   color: white;
 }
 
+@font-face {
+  font-family: "BaskerFont"; /* Use the same name you used in the Tailwind config */
+  src: url("../assets/font/BaskervvilleSC-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
@@ -23,7 +29,24 @@ body {
 }
 
 .tv_image {
-  background-image: url("../signUpPageImages/MovieImage/tv_background.jpg");
+  background-image: url("../assets/images/MovieTemplate/tv_background.jpg");
   background-position: center;
   background-size: cover;
+}
+
+.skeleton-box {
+  background-color: rgb(136, 135, 135);
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
 }/*# sourceMappingURL=app.css.map */
