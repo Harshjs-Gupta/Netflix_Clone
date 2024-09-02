@@ -5,8 +5,9 @@ import userProfileImage from "../../assets/userProfileImage/2.png";
 import search from "../../assets/icons/search.png";
 import useSearchData from "../../assets/api/searchMovieByApi";
 import Movies from "../SearchMovieData/Movies";
+import PropTypes from "prop-types";
 
-function HomeHeader({ handleLogOut }) {
+function HomeHeader({ handleLogOut = () => {} }) {
   const navigate = useNavigate();
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [showMovies, setShowMovies] = useState(false);
@@ -69,3 +70,7 @@ function HomeHeader({ handleLogOut }) {
 }
 
 export default HomeHeader;
+
+HomeHeader.propTypes = {
+  handleLogOut: PropTypes.func.isRequired,
+};
