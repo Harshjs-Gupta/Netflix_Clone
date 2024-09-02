@@ -3,9 +3,13 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import "./sass/app.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import SignUpPage from "./SignUpPage";
-import SignInPage from "./SignInPage";
-import HomePage from "./HomePage";
+import SignUpPage from "./pages/validation/SignUpPage";
+import SignInPage from "./pages/validation/SignInPage";
+import HomePage from "./pages/HomePage";
+
+function handleLogOut() {
+  localStorage.clear();
+}
 
 const router = createBrowserRouter([
   {
@@ -18,7 +22,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/home",
-    element: <HomePage />,
+    element: <HomePage handleLogOut={handleLogOut} />,
   },
 ]);
 
