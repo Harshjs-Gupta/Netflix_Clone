@@ -5,7 +5,6 @@ import userProfileImage from "../../assets/userProfileImage/2.png";
 import search from "../../assets/icons/search.png";
 import useSearchData from "../../assets/api/searchMovieByApi";
 import Movies from "../SearchMovieData/Movies";
-import PropTypes from "prop-types";
 
 function HomeHeader({ handleLogOut }) {
   const navigate = useNavigate();
@@ -23,9 +22,8 @@ function HomeHeader({ handleLogOut }) {
     // console.log(comingMovieData);
     if (searchedMovie) {
       setShowMovies(true);
-    } else if (!isSearchOpen) {
-      setSearchedMovie(false);
-      setShowMovies(false);
+    } else if (isSearchOpen === false) {
+      setSearchedMovie(!searchedMovie);
     }
     setSearchedMovie("");
   }
@@ -70,7 +68,3 @@ function HomeHeader({ handleLogOut }) {
 }
 
 export default HomeHeader;
-
-HomeHeader.propTypes = {
-  handleLogOut: PropTypes.func.isRequired,
-};
