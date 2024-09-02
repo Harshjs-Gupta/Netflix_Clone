@@ -22,14 +22,17 @@ function HomeHeader({ handleLogOut }) {
     // console.log(comingMovieData);
     if (searchedMovie) {
       setShowMovies(true);
-    } else if (!isSearchOpen) {
-      setSearchedMovie(!searchedMovie);
+    } else {
+      setShowMovies(false);
     }
     setSearchedMovie("");
   }
 
   function handleSearchOpen() {
     setIsSearchOpen(!isSearchOpen);
+    if (!isSearchOpen) {
+      setSearchedMovie(false);
+    }
   }
 
   return (
