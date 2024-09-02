@@ -22,7 +22,8 @@ function HomeHeader({ handleLogOut }) {
     // console.log(comingMovieData);
     if (searchedMovie) {
       setShowMovies(true);
-    } else {
+    } else if (!isSearchOpen) {
+      setSearchedMovie(false);
       setShowMovies(false);
     }
     setSearchedMovie("");
@@ -30,9 +31,6 @@ function HomeHeader({ handleLogOut }) {
 
   function handleSearchOpen() {
     setIsSearchOpen(!isSearchOpen);
-    if (!isSearchOpen) {
-      setSearchedMovie(false);
-    }
   }
 
   return (
