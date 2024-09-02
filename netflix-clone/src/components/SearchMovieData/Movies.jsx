@@ -1,9 +1,7 @@
 import HomeHeader from "../HomePageComponent/HomeHeader";
-import useSearchData from "../../assets/api/searchMovieByApi";
 
-function Movies() {
+function Movies({ comingMovieData }) {
   const { showMovies } = HomeHeader();
-  const { comingMovieData } = useSearchData();
 
   return (
     <>
