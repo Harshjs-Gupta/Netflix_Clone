@@ -22,7 +22,7 @@ function HomeHeader({ handleLogOut }) {
     // console.log(comingMovieData);
     if (searchedMovie) {
       setShowMovies(true);
-    } else if (isSearchOpen === false) {
+    } else if (!isSearchOpen) {
       setSearchedMovie(false);
       setShowMovies(false);
     }
@@ -56,7 +56,7 @@ function HomeHeader({ handleLogOut }) {
             </form>
           )}
         </div>
-        <div><Movies comingMovieData={comingMovieData} /></div>
+        <div>{showMovies && <Movies comingMovieData={comingMovieData} />}</div>
         <img
           src={userProfileImage}
           alt="profile_image"
@@ -64,7 +64,6 @@ function HomeHeader({ handleLogOut }) {
           className="h-8 cursor-pointer"
         />
       </header>
-      {showMovies}
     </>
   );
 }
