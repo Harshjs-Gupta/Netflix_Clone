@@ -10,23 +10,17 @@ import { signInWithPopup } from "firebase/auth";
 
 function SignInPage() {
   const [email, setEmail] = useState("");
-  const [verifyEmail, setVerifyEmail] = useState("");
-  const [verifyPassword, setVerifyPassword] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  function handleSubmit() {
-    if (verifyEmail === "test@123" && verifyPassword === "test123") {
+  function handleSubmit(e) {
+    e.preventDefault(); // Prevent form from refreshing the page
+    if (email === "test@123" && password === "test123") {
       navigate("/home");
+    } else {
+      alert("Invalid credentials");
     }
   }
-
-  const verifyE_mail = function () {
-    setVerifyEmail(verifyEmail);
-  };
-
-  const password = function () {
-    setVerifyPassword(verifyPassword);
-  };
 
   const handleAuth = function () {
     signInWithPopup(auth, provider)
@@ -38,12 +32,12 @@ function SignInPage() {
   };
 
   useEffect(() => {
-    setEmail(localStorage.getItem("email"));
-  }, []);
+    setEmail(localStorage.getItem("email")); 
+  }, []); 
 
   useEffect(() => {
     if (email) {
-      navigate("/home"); // Navigate to HomePage when email is set
+      navigate("/home");
     }
   }, [email, navigate]);
 
@@ -67,15 +61,15 @@ function SignInPage() {
               <input
                 type="text"
                 placeholder="Email or mobile number"
-                value={verifyE_mail}
-                onChange={(e) => e.target.value}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="sm:w-[315px] w-[340px] h-14 border border-solid border-gray-700 placeholder:text-gray-400 bg-[rgba(0,0,0,.3)] pl-2 rounded-[4px] "
               />
               <input
                 type="text"
                 placeholder="Password"
                 value={password}
-                onChange={(e) => e.target.value}
+                onChange={(e) => setPassword(e.target.value)}
                 className="sm:w-[315px] w-[340px] h-14 border border-solid border-gray-700 placeholder:text-gray-400 bg-[rgba(0,0,0,.3)] pl-2 rounded-[4px]"
               />
               <button
