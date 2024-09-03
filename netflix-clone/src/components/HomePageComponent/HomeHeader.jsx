@@ -6,16 +6,11 @@ import search from "../../assets/icons/search.png";
 import useSearchData from "../../assets/api/searchMovieByApi";
 import Movies from "../SearchMovieData/Movies";
 
-function HomeHeader({ handleLogOut }) {
+function HomeHeader() {
   const navigate = useNavigate();
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [showMovies, setShowMovies] = useState(false);
   const { searchedMovie, setSearchedMovie, comingMovieData } = useSearchData();
-
-  const onLogOut = () => {
-    handleLogOut();
-    navigate("/signIn");
-  };
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -30,6 +25,11 @@ function HomeHeader({ handleLogOut }) {
 
   function handleSearchOpen() {
     setIsSearchOpen(!isSearchOpen);
+  }
+
+  function handleLogOut() {
+    localStorage.clear();
+    navigate("/signIn");
   }
 
   return (
@@ -59,7 +59,7 @@ function HomeHeader({ handleLogOut }) {
         <img
           src={userProfileImage}
           alt="profile_image"
-          onClick={onLogOut}
+          onClick={handleLogOut}
           className="h-8 cursor-pointer"
         />
       </header>
