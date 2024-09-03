@@ -55,7 +55,7 @@ function HomeHeader() {
             </form>
           )}
         </div>
-        <div>{showMovies && <Movies comingMovieData={comingMovieData} />}</div>
+        <div>{<Movies comingMovieData={comingMovieData} />}</div>
         <img
           src={userProfileImage}
           alt="profile_image"
