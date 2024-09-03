@@ -7,10 +7,6 @@ import SignUpPage from "./pages/validation/SignUpPage";
 import SignInPage from "./pages/validation/SignInPage";
 import HomePage from "./pages/HomePage";
 
-function handleLogOut() {
-  localStorage.clear();
-}
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -22,7 +18,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/home",
-    element: <HomePage handleLogOut={handleLogOut} />,
+    element: <HomePage />,
   },
 ]);
 
