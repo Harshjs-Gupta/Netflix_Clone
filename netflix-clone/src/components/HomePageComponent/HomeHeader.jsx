@@ -63,6 +63,7 @@ function HomeHeader() {
           className="h-8 cursor-pointer"
         />
       </header>
+      {showMovies}
     </>
   );
 }
