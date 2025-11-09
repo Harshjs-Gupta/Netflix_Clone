@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import netflix from "../../assets/images/netflix.png";
 import userProfileImage from "../../assets/userProfileImage/2.png";
 import search from "../../assets/icons/search.png";
-import useSearchData from "../../assets/api/searchMovieByApi";
+import useSearchData from "../../api/searchMovieByApi";
 import Movies from "../SearchMovieData/Movies";
 
 function HomeHeader() {
@@ -11,6 +11,7 @@ function HomeHeader() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [showMovies, setShowMovies] = useState(false);
   const { searchedMovie, setSearchedMovie, comingMovieData } = useSearchData();
+  const [isScrolled, setIsScrolled] = useState(false);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -32,11 +33,24 @@ function HomeHeader() {
     navigate("/signIn");
   }
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 80);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <>
-      <header className="absolute flex items-center justify-between h-16 w-full mt-0 py-2 px-4 z-10">
+      <nav
+        className={`${
+          isScrolled && "bg-[#000000c8] transition"
+        } fixed z-20 flex items-center justify-between w-full h-16 px-4 py-2 mt-0`}
+      >
         <img src={netflix} alt="netflix_logo" className="h-14" />
-        <div className="absolute right-14 flex items-center justify-center gap-2">
+        <div className="absolute flex items-center justify-center gap-2 right-14">
           <img
             src={search}
             alt="search_icon"
@@ -50,19 +64,20 @@ function HomeHeader() {
                 placeholder="Search movies..."
                 value={searchedMovie}
                 onChange={(e) => setSearchedMovie(e.target.value)}
-                className="search-movies lg:w-72 w-36 h-7 bg-gray-400/50 border border-solid focus:outline-none border-white font-medium pl-3 placeholder:text-white placeholder:font-medium"
+                className="pl-3 font-medium border border-white border-solid search-movies lg:w-72 w-36 h-7 bg-gray-400/50 focus:outline-none placeholder:text-white placeholder:font-medium"
               />
             </form>
           )}
         </div>
-        <div>{<Movies comingMovieData={comingMovieData} />}</div>
+        {comingMovieData ? <Movies comingMovieData={comingMovieData} /> : <></>}
         <img
           src={userProfileImage}
           alt="profile_image"
           onClick={handleLogOut}
           className="h-8 cursor-pointer"
         />
-      </header>
+      </nav>
+      {/* <span className="text-[#00000069]">Hello</span> */}
       {showMovies}
     </>
   );
