@@ -34,7 +34,7 @@ function useSearchData() {
 
     // Cleanup function - clears the timer if searchedMovie changes before 500ms
     return () => clearTimeout(debounceTimer);
-  }, [searchedMovie]);
+  }, [searchedMovie, options]);
 
   return { searchedMovie, setSearchedMovie, comingMovieData };
 }

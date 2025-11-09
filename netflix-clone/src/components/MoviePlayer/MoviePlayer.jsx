@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import LeftArrow from "../../assets/icons/leftArrow.png";
 import { useParams } from "react-router-dom";
-import Movies from "../SearchMovieData/Movies";
-import MovieList from "../HomePageComponent/MovieList";
 
 const MoviePlayer = () => {
   const [movieVideo, setMovieVideo] = useState(null);

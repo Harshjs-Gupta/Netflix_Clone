@@ -75,7 +75,7 @@ fetch('https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1', op
 
   useEffect(() => {
     getData();
-  }, []);
+  }, [getData]);
 
   return {
     comedyMovieData,

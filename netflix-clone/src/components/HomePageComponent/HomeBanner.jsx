@@ -8,8 +8,6 @@ import { useParams } from "react-router-dom";
 function HomeBanner() {
   const [homeScreenMovie, setHomeScreenMovie] = useState(null);
   const [loading, setLoading] = useState(true);
-  const { id } = useParams();
-  const API_KEY = "d39b36a7fd8caa7ffa28c60d3eef4c78";
 
   const options = {
     method: "GET",

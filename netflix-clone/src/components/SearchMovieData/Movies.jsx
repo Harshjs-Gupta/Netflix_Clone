@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import HomeHeader from "../HomePageComponent/HomeHeader";
 import { useParams } from "react-router-dom";
 
 function Movies({ comingMovieData }) {
