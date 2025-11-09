@@ -32,8 +32,8 @@ function SignInPage() {
   };
 
   useEffect(() => {
-    setEmail(localStorage.getItem("email")); 
-  }, []); 
+    setEmail(localStorage.getItem("email"));
+  }, []);
 
   useEffect(() => {
     if (email) {
@@ -47,7 +47,7 @@ function SignInPage() {
         <img
           src={netflix}
           alt="netflix_Logo"
-          className="w-24 absolute left-5 sm:top-4 top-5 sm:left-40 sm:w-40 z-10"
+          className="absolute z-10 w-24 left-5 sm:top-4 top-5 sm:left-40 sm:w-40"
         />
         <div className="absolute sm:inset-0 sm:top-[10%] text-left z-10 flex sm:items-center sm:justify-center items-start">
           <div className="flex flex-col h-[700px] w-full sm:h-[600px] sm:w-[450px] sm:bg-[rgba(4,3,2,.7)] p-6 sm:px-20 sm:py-16 mt-16 sm:mt-[150px]">
@@ -56,7 +56,7 @@ function SignInPage() {
             </span>
             <form
               onSubmit={handleSubmit}
-              className="text-left sm:text-center flex flex-col gap-4 mt-7"
+              className="flex flex-col gap-4 text-left sm:text-center mt-7"
             >
               <input
                 type="text"
@@ -80,7 +80,7 @@ function SignInPage() {
                 Sign In
               </button>
             </form>
-            <span className="text-center text-gray-400 my-4">OR</span>
+            <span className="my-4 text-center text-gray-400">OR</span>
             {email ? (
               <div className="text-center text-gray-400">Redirecting...</div>
             ) : (
@@ -93,12 +93,12 @@ function SignInPage() {
                   alt="google_logo"
                   className="h-10 sm:h-8"
                 />
-                <span className="text-gray-700 font-semibold">
+                <span className="font-semibold text-gray-700">
                   Sign In With Google
                 </span>
               </button>
             )}
-            <span className="text-center text-gray-400 my-4">
+            <span className="my-4 text-center text-gray-400">
               Forgot password?
             </span>
             <div className="flex items-center space-x-2 text-left">
@@ -108,15 +108,15 @@ function SignInPage() {
               />
               <span>Remember me</span>
             </div>
-            <p className="flex items-start space-x-2 text-left mt-4">
+            <p className="flex items-start mt-4 space-x-2 text-left">
               <span className="text-gray-400">New to Netflix?</span>
               <span>
                 <Link to="/">Sign up now.</Link>
               </span>
             </p>
-            <p className="mt-4 text-left text-xs">
+            <p className="mt-4 text-xs text-left">
               This page is protected by Google reCAPTCHA to ensure you're not a
-              bot. <span className="text-blue-500 text-xs">Learn more.</span>
+              bot. <span className="text-xs text-blue-500">Learn more.</span>
             </p>
           </div>
         </div>
@@ -128,17 +128,17 @@ function SignInPage() {
         />
       </div>
       <div className="bg-black h-96 sm:py-72 sm:px-32 px-6 pt-10 mt-[179px] sm:mt-0">
-        <p className="space-x-2 text-left mt-6">
+        <p className="mt-6 space-x-2 text-left">
           <span className="text-gray-400">Questions? Call</span>
           <span className="font-medium text-gray-400">000-800-919-1694</span>
         </p>
-        <div className="grid sm:grid-rows-2 sm:grid-cols-3 grid-rows-3 grid-cols-2 gap-3 mt-4">
-          <span className="underline text-gray-400">FAQ</span>
-          <span className="underline text-gray-400">Help centre</span>
-          <span className="underline text-gray-400">Term of Use</span>
-          <span className="underline text-gray-400">Privacy</span>
-          <span className="underline text-gray-400">Cookie Preferences</span>
-          <span className="underline text-gray-400">Corporate Information</span>
+        <div className="grid grid-cols-2 grid-rows-3 gap-3 mt-4 sm:grid-rows-2 sm:grid-cols-3">
+          <span className="text-gray-400 underline">FAQ</span>
+          <span className="text-gray-400 underline">Help centre</span>
+          <span className="text-gray-400 underline">Term of Use</span>
+          <span className="text-gray-400 underline">Privacy</span>
+          <span className="text-gray-400 underline">Cookie Preferences</span>
+          <span className="text-gray-400 underline">Corporate Information</span>
         </div>
         <div className="h-8 w-28 rounded-md flex bg-[rgb(15,15,15,.3)] items-center justify-center border-[1.5px] border-solid border-gray mt-16">
           <img
@@ -146,7 +146,7 @@ function SignInPage() {
             alt="translate_icon"
             className="w-[15px] h-[15px] font-medium"
           />
-          <select className="bg-transparent text-lg font-medium focus:outline-none ml-1">
+          <select className="ml-1 text-lg font-medium bg-transparent focus:outline-none">
             <option value="English" key="English">
               English
             </option>
