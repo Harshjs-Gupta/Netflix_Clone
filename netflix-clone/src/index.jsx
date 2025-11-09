@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import SignUpPage from "./pages/validation/SignUpPage";
 import SignInPage from "./pages/validation/SignInPage";
 import HomePage from "./pages/HomePage";
+import MoviePlayer from "./components/MoviePlayer/MoviePlayer";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
   {
     path: "/home",
     element: <HomePage />,
+  },
+  {
+    path: "/movie-player/:id",
+    element: <MoviePlayer />,
   },
 ]);
 
