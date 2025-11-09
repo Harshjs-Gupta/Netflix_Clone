@@ -3,7 +3,6 @@ import netflixLogo from "../../assets/images/netflixLogo.png";
 import add from "../../assets/icons/open.png";
 import play from "../../assets/icons/play.png";
 import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
 
 function HomeBanner() {
   const [homeScreenMovie, setHomeScreenMovie] = useState(null);

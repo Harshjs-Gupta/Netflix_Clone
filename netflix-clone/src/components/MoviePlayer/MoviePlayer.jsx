@@ -27,7 +27,7 @@ const MoviePlayer = () => {
       setAnotherVideo(movieVideoData.results || []);
     }
     fetchMovieVideos();
-  }, []);
+  }, [id]);
 
   return (
     <section className="flex flex-col w-screen h-screen gap-4 p-3 overflow-y-scroll text-black bg-black sm:p-8 sm:flex-row custom-scrollbar">
