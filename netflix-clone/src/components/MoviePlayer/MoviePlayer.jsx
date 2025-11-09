@@ -15,18 +15,17 @@ const MoviePlayer = () => {
     },
   };
 
-  async function fetchMovieVideos() {
-    const videoRes = await fetch(
-      `https://api.themoviedb.org/3/movie/${id}/videos?language=en-US`,
-      options
-    );
-    const movieVideoData = await videoRes.json();
-    // console.log(movieVideoData);
-    setMovieVideo(movieVideoData.results[0] || []);
-    setAnotherVideo(movieVideoData.results || []);
-  }
-
   useEffect(() => {
+    async function fetchMovieVideos() {
+      const videoRes = await fetch(
+        `https://api.themoviedb.org/3/movie/${id}/videos?language=en-US`,
+        options
+      );
+      const movieVideoData = await videoRes.json();
+      // console.log(movieVideoData);
+      setMovieVideo(movieVideoData.results[0] || []);
+      setAnotherVideo(movieVideoData.results || []);
+    }
     fetchMovieVideos();
   }, []);
 

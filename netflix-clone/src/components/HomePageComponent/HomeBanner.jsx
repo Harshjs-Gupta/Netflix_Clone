@@ -18,29 +18,29 @@ function HomeBanner() {
     },
   };
 
-  async function getHomeScreenMovie() {
-    try {
-      setLoading(true);
-      const searchMovieRes = await fetch(
-        `https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1`,
-        options
-      );
-      const movies = await searchMovieRes.json();
-
-      if (movies.results && movies.results.length > 0) {
-        // Get a random movie from results
-        const randomIndex = Math.floor(Math.random() * movies.results.length);
-        const movie = movies.results[randomIndex];
-        setHomeScreenMovie(movie);
-      }
-    } catch (error) {
-      console.error("Error fetching movie:", error);
-    } finally {
-      setLoading(false);
-    }
-  }
-
   useEffect(() => {
+    async function getHomeScreenMovie() {
+      try {
+        setLoading(true);
+        const searchMovieRes = await fetch(
+          `https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1`,
+          options
+        );
+        const movies = await searchMovieRes.json();
+
+        if (movies.results && movies.results.length > 0) {
+          // Get a random movie from results
+          const randomIndex = Math.floor(Math.random() * movies.results.length);
+          const movie = movies.results[randomIndex];
+          setHomeScreenMovie(movie);
+        }
+      } catch (error) {
+        console.error("Error fetching movie:", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
     getHomeScreenMovie();
   }, []);
 
