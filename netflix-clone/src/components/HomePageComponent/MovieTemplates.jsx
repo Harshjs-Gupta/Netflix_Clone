@@ -1,38 +1,29 @@
-import useMovieData from "../../assets/api/moviesApi";
+import useMovieData from "../../api/moviesApi";
 import MovieDetails from "./MovieDetails";
 
 function MovieTemplates() {
   const {
     comedyMovieData,
-    classicMovieData,
+    topRatedData,
     horrorMovieData,
-    westernMovieData,
+    romanceMovieData,
+    sciFiMovieData,
     familyMovieData,
-    mysteryMovieData,
   } = useMovieData();
 
   return (
-    <div className="bg-black h-full">
+    <div className="h-full bg-black">
+      <MovieDetails movieType={topRatedData} movieTitle={"Top Rated Movies"} />
       <MovieDetails
-        movieType={comedyMovieData}
-        movieTitle={"Popular on Netflix"}
+        movieType={romanceMovieData}
+        movieTitle={"Romance Movies"}
       />
+      <MovieDetails movieType={comedyMovieData} movieTitle={"Comedy Movies"} />
       <MovieDetails movieType={horrorMovieData} movieTitle={"Horror Movies"} />
-      <MovieDetails
-        movieType={classicMovieData}
-        movieTitle={"Classic Movies"}
-      />
-      <MovieDetails
-        movieType={westernMovieData}
-        movieTitle={"Western Movies"}
-      />
+      <MovieDetails movieType={sciFiMovieData} movieTitle={"Sci-Fi"} />
       <MovieDetails
         movieType={familyMovieData}
         movieTitle={"Family Friendly Movies"}
-      />
-      <MovieDetails
-        movieType={mysteryMovieData}
-        movieTitle={"Mysterious Movies"} // Corrected the typo
       />
     </div>
   );
